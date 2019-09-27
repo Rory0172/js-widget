@@ -8,7 +8,7 @@ export function show(text) {
     // convert plain HTML string into DOM elements
     let temporary = document.createElement('div');
     temporary.innerHTML = html;
-    temporary.getElementsByClassName('js-widget-dialog')[0].textContent = text;
+    temporary.getElementsByClassName('js-widget-dialog')[0].textContent = "wie is de beste:" + text;
 
     // append elements to body
     body = document.getElementsByTagName('body')[0];
