@@ -16,7 +16,7 @@ export function show(text) {
         elements.push(temporary.children[0]);
         body.appendChild(temporary.children[0]);
     }
-
+    byebug
     body.addEventListener('click', close);
 }
 
