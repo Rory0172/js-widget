@@ -6,14 +6,12 @@
     left: 0px;
     right: 0px;
     opacity: 0.8;
-    /*background-color: #000;*/
 }
 .js-widget-dialog{
     position: fixed;
     z-index: 10002;
-    background: #000;
     margin-left: 50px;
-    bottom: 5%;
+    bottom: 5%; 
     box-shadow: 3px 3px 10px 0 rgba(0,0,0,0.10);
     border-radius: 4px 0 4px 4px 4px;
 }
