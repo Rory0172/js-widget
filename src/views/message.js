@@ -4,11 +4,11 @@ import './message.css';
 let elements = [];
 let body;
 
-export function show(text) {
+export function show(subdomain) {
     // convert plain HTML string into DOM elements
     let temporary = document.createElement('div');
     temporary.innerHTML = html;
-    // temporary.getElementsByClassName('js-widget-dialog')[0].textContent = "wie is de beste:" + text;
+    temporary.getElementsByTagName('iframe')[0].src = `http://${subdomain}.legalsites.com:3000/widget`
 
     // append elements to body
     body = document.getElementsByTagName('body')[0];

@@ -24,37 +24,38 @@ function app(window) {
                 configurations = extendObject(configurations, queue[i][1]);
                 console.log('JS-Widget started', configurations);
             }
-            else
-                apiHandler(queue[i][0], queue[i][1]);
+            // else
+            //     apiHandler(queue[i][0], queue[i][1]);
         }
+        show(configurations.subdomain)
     }
 
     // override temporary (until the app loaded) handler
     // for widget's API calls
-    globalObject = apiHandler;
-    globalObject.configurations = configurations;
+    // globalObject = apiHandler;
+    // globalObject.configurations = configurations;
 }
 
 /**
     Method that handles all API calls
     */
-function apiHandler(api, params) {
-    if (!api) throw Error('API method required');
-    api = api.toLowerCase();
+// function apiHandler(api, params) {
+//     if (!api) throw Error('API method required');
+//     api = api.toLowerCase();
 
-    if (supportedAPI.indexOf(api) === -1) throw Error(`Method ${api} is not supported`);
+//     if (supportedAPI.indexOf(api) === -1) throw Error(`Method ${api} is not supported`);
 
-    console.log(`Handling API call ${api}`, params);
+//     console.log(`Handling API call ${api}`, params);
 
-    switch (api) {
-        // TODO: add API implementation
-        case 'message':
-            show(params);
-            break;
-        default:
-            console.warn(`No handler defined for ${api}`);
-    }
-}
+//     switch (api) {
+//         // TODO: add API implementation
+//         case 'message':
+//             show(params);
+//             break;
+//         default:
+//             console.warn(`No handler defined for ${api}`);
+//     }
+// }
 
 function extendObject(a, b) {
     for (var key in b)
