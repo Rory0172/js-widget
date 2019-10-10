@@ -24,38 +24,24 @@ function app(window) {
                 configurations = extendObject(configurations, queue[i][1]);
                 console.log('JS-Widget started', configurations);
             }
-            // else
-            //     apiHandler(queue[i][0], queue[i][1]);
         }
         show(configurations.subdomain)
     }
-
-    // override temporary (until the app loaded) handler
-    // for widget's API calls
-    // globalObject = apiHandler;
-    // globalObject.configurations = configurations;
 }
 
-/**
-    Method that handles all API calls
-    */
-// function apiHandler(api, params) {
-//     if (!api) throw Error('API method required');
-//     api = api.toLowerCase();
+function receiveMessage(event)
+{
+  // Do we trust the sender of this message?  (might be
+  // different from what we originally opened, for example).
+  if (event.origin !== "http://startupz.legalsites.com:3000")
+    return;
 
-//     if (supportedAPI.indexOf(api) === -1) throw Error(`Method ${api} is not supported`);
+  // event.source is popup
+  // event.data is "hi there yourself!  the secret response is: rheeeeet!"
+  console.log(event.data);
 
-//     console.log(`Handling API call ${api}`, params);
-
-//     switch (api) {
-//         // TODO: add API implementation
-//         case 'message':
-//             show(params);
-//             break;
-//         default:
-//             console.warn(`No handler defined for ${api}`);
-//     }
-// }
+  event.source.postMessage("Message received by widget", event.origin);
+}
 
 function extendObject(a, b) {
     for (var key in b)
@@ -63,5 +49,7 @@ function extendObject(a, b) {
             a[key] = b[key];
     return a;
 }
+
+window.addEventListener("message", receiveMessage, false);
 
 app(window);
