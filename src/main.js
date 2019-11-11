@@ -9,6 +9,11 @@ const supportedAPI = ['init', 'message']; // enlist all methods supported by API
 function app(window) {
     console.log('JS-Widget starting');
 
+    // set default configurations
+    let configurations = {
+        subdomain: ""
+    };
+
     // all methods that were called till now and stored in queue
     // needs to be called now 
     let globalObject = window[window['JS-Widget']];
