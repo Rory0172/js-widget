@@ -25,7 +25,14 @@ function app(window) {
                 console.log('JS-Widget started', configurations);
             }
         }
+        window.addEventListener("message", receiveMessage, false);
         show(configurations.subdomain)
+        
+        let win = window.frames.legalsite;
+        setTimeout(function(){ 
+          win.postMessage("Heey iframe, how are you doing?", "*"); 
+        }, 
+        5000);
     }
 }
 
@@ -36,11 +43,7 @@ function receiveMessage(event)
   if (event.origin !== "http://startupz.legalsites.com:3000")
     return;
 
-  // event.source is popup
-  // event.data is "hi there yourself!  the secret response is: rheeeeet!"
-  console.log(event.data);
-
-  event.source.postMessage("Message received by widget", event.origin);
+  console.log("Received in widget: " + event.data);
 }
 
 function extendObject(a, b) {
@@ -49,7 +52,5 @@ function extendObject(a, b) {
             a[key] = b[key];
     return a;
 }
-
-window.addEventListener("message", receiveMessage, false);
 
 app(window);

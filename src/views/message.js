@@ -8,7 +8,7 @@ export function show(subdomain) {
     // convert plain HTML string into DOM elements
     let temporary = document.createElement('div');
     temporary.innerHTML = html;
-    temporary.getElementsByTagName('iframe')[0].src = `http://${subdomain}.legalsites.com:3000/widget`
+    temporary.getElementsByTagName('iframe')[0].src = `http://${subdomain}.legalsites.app/widget`
 
     // append elements to body
     body = document.getElementsByTagName('body')[0];
