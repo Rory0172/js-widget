@@ -11,9 +11,22 @@ function app(window) {
 
     // set default configurations
     let configurations = {
-        subdomain: "",
+        subdomain:"",
+        uuid: "",
         type: "all-in-one"
     };
+
+    fetch('https://legalsites-widget.s3.eu-central-1.amazonaws.com/5619820f-d37c-4c8f-a6e7-1df72f448a88.json')
+      .then(response => {
+        return response.json()
+      })
+      .then(data => {
+        // Work with JSON data here
+        console.log(data)
+      })
+      .catch(err => {
+        // Do something for an error here
+      })
 
     // all methods that were called till now and stored in queue
     // needs to be called now 
