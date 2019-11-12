@@ -1,5 +1,5 @@
 import { ping } from './services'
-import { show } from './views/message'
+import { show, addStyling } from './views/message'
 
 const supportedAPI = ['init', 'message']; // enlist all methods supported by API (e.g. `mw('event', 'user-login');`)
 
@@ -11,7 +11,8 @@ function app(window) {
 
     // set default configurations
     let configurations = {
-        subdomain: ""
+        subdomain: "",
+        type: "all-in-one"
     };
 
     // all methods that were called till now and stored in queue
@@ -27,12 +28,6 @@ function app(window) {
         }
         window.addEventListener("message", receiveMessage, false);
         show(configurations.subdomain)
-        
-        let win = window.frames.legalsite;
-        setTimeout(function(){ 
-          win.postMessage("Heey iframe, how are you doing?", "*"); 
-        }, 
-        5000);
     }
 }
 
@@ -40,10 +35,12 @@ function receiveMessage(event)
 {
   // Do we trust the sender of this message?  (might be
   // different from what we originally opened, for example).
-  if (event.origin !== "http://startupz.legalsites.com:3000")
+  console.log(event.origin)
+  if (event.origin !== "http://startupz.localhost:3001")
     return;
 
   console.log("Received in widget: " + event.data);
+  addStyling(event.data);
 }
 
 function extendObject(a, b) {
