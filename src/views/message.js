@@ -4,7 +4,10 @@ import './message.css';
 let elements = [];
 let body;
 
-export function show(subdomain) {
+export function show(configurations) {
+  let subdomain = configurations.subdomain;
+  let styling = configurations.styling;
+  console.log(configurations);
   let temporary = document.createElement('div');
   temporary.innerHTML = html;
   temporary.getElementsByTagName(
@@ -12,6 +15,7 @@ export function show(subdomain) {
   )[0].src = `http://${subdomain}.localhost:3001/widget`;
   let dialog = temporary.getElementsByClassName('js-widget-dialog')[0];
   dialog.style.cssText = 'width: 50%';
+  switch styling.template
 
   body = document.getElementsByTagName('body')[0];
 
@@ -55,8 +59,3 @@ export function close() {
 //   window.setTimeout(checkIframeLoaded, 100);
 // }
 
-function requestStyling() {
-  let win = window.frames.legalsite;
-  win.postMessage('Can I get some popup styling?', '*');
-  console.log('Widget send styling request.');
-}
