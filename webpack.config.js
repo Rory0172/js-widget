@@ -28,7 +28,7 @@ module.exports = (env) => {
                         options: {
                             presets: [['@babel/env', {
                                 'targets': {
-                                    'browsers': ['ie 6', 'safari 7']
+                                    'browsers': ['ie 8', 'safari 7']
                                 }
                             }]]
                         }

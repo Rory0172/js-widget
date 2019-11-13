@@ -1,5 +1,5 @@
 import html from './message.html';
-import './message.scss';
+import './message.sass';
 
 let elements = [];
 let body;
@@ -7,32 +7,30 @@ let body;
 export function show(configurations) {
   let subdomain = configurations.subdomain;
   let styling = configurations.styling;
-  console.log(configurations);
   let temporary = document.createElement('div');
   temporary.innerHTML = html;
   temporary.getElementsByTagName(
     'iframe'
   )[0].src = `http://${subdomain}.localhost:3001/widget`;
   let dialog = temporary.getElementsByClassName('js-widget-dialog')[0];
-  dialog.className += "-top";
-  // switch (styling.template){
-  // case "squared popup":
-  //   if (styling.popup_side == 'left'){
-  //     dialog.classList.add("-left");
-  //   }
-  //   if (styling.popup_side == 'right'){
-  //     dialog.classList.add("-right");
-  //   }
-  //   break;
-  // case "vertical popup":
-  //   if (styling.popup_position == 'top'){
-  //     dialog.classList.add("-top")
-  //   }
-  //   if (styling.popup_position == 'bottom'){
-  //     dialog.classList.add("-bottom");
-  //   }
-  //   break;
-  // }
+  switch (styling.template){
+  case "squared popup":
+    if (styling.popup_side == 'left'){
+      dialog.className += "-left";
+    }
+    if (styling.popup_side == 'right'){
+      dialog.className += "-right";
+    }
+    break;
+  case "vertical popup":
+    if (styling.popup_position == 'top'){
+      dialog.className += "-top";
+    }
+    if (styling.popup_position == 'bottom'){
+      dialog.className += "-bottom";
+    }
+    break;
+  }
 
   body = document.getElementsByTagName('body')[0];
 

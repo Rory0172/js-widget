@@ -13,8 +13,7 @@ function app(window) {
     let configurations = {
         uuid: "",
         type: "all-in-one",
-        subdomain: "startupz",
-        styling:""
+        subdomain: "startupz"
     };
 
     let request = new Request('https://legalsites-widget.s3.eu-central-1.amazonaws.com/5619820f-d37c-4c8f-a6e7-1df72f448a88.json') 
@@ -28,6 +27,8 @@ function app(window) {
         // needs to be called now 
         let globalObject = window[window['JS-Widget']];
         let queue = globalObject.q;
+        let styling = data.styling;
+        configurations = {...configurations, styling};
         if (queue) {
             for (var i = 0; i < queue.length; i++) {
                 if (queue[i][0].toLowerCase() == 'init') {
@@ -38,7 +39,6 @@ function app(window) {
             window.addEventListener("message", receiveMessage, false);
             show(configurations);
         }
-        configurations.styling = data.styling;
       })
       .catch(err => {
         // Do something for an error here
