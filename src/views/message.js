@@ -12,6 +12,17 @@ export function show(configurations) {
   temporary.getElementsByTagName(
     'iframe'
   )[0].src = `http://${subdomain}.localhost:3001/widget`;
+
+  let overlay = temporary.getElementsByClassName('js-widget-overlay')[0];
+  switch (styling.overlay){
+  case "light":
+    overlay.className +="-light"
+    break;
+  case "dark":
+    overlay.className +="-dark"
+    break;
+  }
+
   let dialog = temporary.getElementsByClassName('js-widget-dialog')[0];
   switch (styling.template){
   case "squared popup":
@@ -42,35 +53,9 @@ export function show(configurations) {
   body.addEventListener('click', close);
 }
 
-// export function addStyling(styling) {
-//   let dialog = body.getElementsByClassName('js-widget-dialog')[0];
-//   dialog.style.cssText = styling;
-// }
-
 export function close() {
   while (elements.length > 0) {
     elements.pop().remove();
   }
   body.removeEventListener('click', close);
 }
-
-// function checkIframeLoaded() {
-//   // Get a handle to the iframe element
-//   var iframe = window.frames.legalsite;
-//   var iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
-
-//   // Check if loading is complete
-//   if (iframeDoc.readyState == 'complete') {
-//     //iframe.contentWindow.alert("Hello");
-//     iframe.contentWindow.onload = function() {
-//       alert('I am loaded');
-//     };
-//     // The loading is complete, call the function we want executed once the iframe is loaded
-//     requestStyling();
-//     return;
-//   }
-
-//   // If we are here, it is not loaded. Set things up so we check   the status again in 100 milliseconds
-//   window.setTimeout(checkIframeLoaded, 100);
-// }
-

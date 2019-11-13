@@ -1,21 +1,31 @@
 .js-widget-overlay
-  z-index: 10001
-  position: fixed
-  top: 0px
-  bottom: 0px
-  left: 0px
-  right: 0px
-  opacity: 0.8
+  &-light
+    z-index: 10000
+    position: absolute
+    top: 0px
+    bottom: 0px
+    left: 0px
+    right: 0px
+    opacity: 0.8
+  &-dark
+    z-index: 10000
+    position: fixed
+    top: 0px
+    bottom: 0px
+    left: 0px
+    right: 0px
+    opacity: 0.8
+    background-color: rgba(0, 0, 0, 0.73)
 
 .js-widget-dialog
   &-left
+    z-index: 10001
     background: #fff
     box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.1)
     height: 214px
     position: fixed
     width: 100%
     display: flex
-    z-index: 10
     align-items: center
     justify-content: center
     flex-direction: column
@@ -23,13 +33,13 @@
     bottom: 48px
     max-width: 280px
   &-right
+    z-index: 10001
     background: #fff
     box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.1)
     height: 214px
     position: fixed
     width: 100%
     display: flex
-    z-index: 10
     align-items: center
     justify-content: center
     flex-direction: column
@@ -37,32 +47,33 @@
     bottom: 48px
     max-width: 280px
   &-bottom
+    z-index: 10001
     background: #fff
     box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.1)
     height: 214px
     position: fixed
     width: 100%
     display: flex
-    z-index: 10
     align-items: center
     justify-content: center
     flex-direction: column
     bottom: 0
     width: 100%
   &-top
+    z-index: 10001
     background: #fff
     box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.1)
     height: 214px
     position: fixed
     width: 100%
     display: flex
-    z-index: 10
     align-items: center
     justify-content: center
     flex-direction: column
     top: 0
 
 .js-widget-iframe
+  z-index: auto
   border: 0px
   height: 100%
   width: 100%
