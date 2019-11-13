@@ -1,5 +1,5 @@
 import { ping } from './services'
-import { show, addStyling } from './views/message'
+import { show } from './views/message'
 
 const supportedAPI = ['init', 'message']; // enlist all methods supported by API (e.g. `mw('event', 'user-login');`)
 

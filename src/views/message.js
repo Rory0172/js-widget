@@ -1,5 +1,5 @@
 import html from './message.html';
-import './message.css';
+import './message.scss';
 
 let elements = [];
 let body;
@@ -14,8 +14,25 @@ export function show(configurations) {
     'iframe'
   )[0].src = `http://${subdomain}.localhost:3001/widget`;
   let dialog = temporary.getElementsByClassName('js-widget-dialog')[0];
-  dialog.style.cssText = 'width: 50%';
-  switch styling.template
+  dialog.className += "-top";
+  // switch (styling.template){
+  // case "squared popup":
+  //   if (styling.popup_side == 'left'){
+  //     dialog.classList.add("-left");
+  //   }
+  //   if (styling.popup_side == 'right'){
+  //     dialog.classList.add("-right");
+  //   }
+  //   break;
+  // case "vertical popup":
+  //   if (styling.popup_position == 'top'){
+  //     dialog.classList.add("-top")
+  //   }
+  //   if (styling.popup_position == 'bottom'){
+  //     dialog.classList.add("-bottom");
+  //   }
+  //   break;
+  // }
 
   body = document.getElementsByTagName('body')[0];
 
