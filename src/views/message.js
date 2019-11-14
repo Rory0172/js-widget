@@ -7,13 +7,13 @@ let body;
 export function show(configurations) {
   let subdomain = configurations.subdomain;
   let styling = configurations.styling;
-  let type = configurations.type.toLowerCase();
-  let underscored_type = type.replace(/ /g,"_");
+  let widget_id = configurations.widget_id;
+
   let temporary = document.createElement('div');
   temporary.innerHTML = html;
   temporary.getElementsByTagName(
     'iframe'
-  )[0].src = `http://${subdomain}.localhost:3001/widget?type=${underscored_type}`;
+  )[0].src = `http://${subdomain}.localhost:3001/widget/${widget_id}`;
 
   let overlay = temporary.getElementsByClassName('js-widget-overlay')[0];
   switch (styling.overlay){
