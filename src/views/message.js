@@ -7,13 +7,13 @@ let body;
 export function show(configurations) {
   let subdomain = configurations.subdomain;
   let styling = configurations.styling;
-  let widget_id = configurations.widget_id;
+  let uuid = configurations.uuid;
 
   let temporary = document.createElement('div');
   temporary.innerHTML = html;
   temporary.getElementsByTagName(
     'iframe'
-  )[0].src = `http://${subdomain}.localhost:3001/widget/${widget_id}`;
+  )[0].src = `http://${subdomain}.localhost:3001/widget/${uuid}`;
 
   let overlay = temporary.getElementsByClassName('js-widget-overlay')[0];
   switch (styling.overlay){

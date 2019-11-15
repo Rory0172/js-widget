@@ -13,8 +13,7 @@ function app(window) {
   let configurations = {
     uuid: '',
     type: 'all-in-one',
-    subdomain: '',
-    widget_uuid:''
+    subdomain: ''
   };
 
   let globalObject = window[window['JS-Widget']];
@@ -41,8 +40,7 @@ function app(window) {
       // needs to be called now
       let styling = data.styling;
       let subdomain = data.subdomain;
-      let widget_id = data.widget_id;
-      configurations = { ...configurations, styling, subdomain, widget_id };
+      configurations = { ...configurations, styling, subdomain };
       console.log(configurations);
       window.addEventListener('message', receiveMessage, false);
       show(configurations);
