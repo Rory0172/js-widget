@@ -2,6 +2,8 @@ const path = require('path');
 const webpack = require('webpack');
 var copyWebpackPlugin = require('copy-webpack-plugin');
 const bundleOutputDir = './public';
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+
 
 module.exports = (env) => {
     const isDevBuild = !(env && env.prod);
@@ -17,7 +19,10 @@ module.exports = (env) => {
         },
         plugins: isDevBuild
             ? [new webpack.SourceMapDevToolPlugin(), new copyWebpackPlugin([{ from: 'demo/' }])]
-            : [new webpack.optimize.UglifyJsPlugin()],
+            : [],
+        optimization: {
+          minimizer: (!isDevBuild && [new UglifyJsPlugin()]),
+        },
         module: {
             rules: [
                 { test: /\.html$/i, use: 'html-loader' },

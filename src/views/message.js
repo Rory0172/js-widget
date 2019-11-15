@@ -13,7 +13,7 @@ export function show(configurations) {
   temporary.innerHTML = html;
   temporary.getElementsByTagName(
     'iframe'
-  )[0].src = `http://${subdomain}.localhost:3001/widget/${uuid}`;
+  )[0].src = `https://legalsites.app/widget/${uuid}`;
 
   let overlay = temporary.getElementsByClassName('js-widget-overlay')[0];
   switch (styling.overlay){
