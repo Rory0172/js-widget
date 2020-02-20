@@ -20,9 +20,9 @@ module.exports = (env) => {
         plugins: isDevBuild
             ? [new webpack.SourceMapDevToolPlugin(), new copyWebpackPlugin([{ from: 'demo/' }])]
             : [],
-        optimization: {
-          minimizer: (!isDevBuild && [new UglifyJsPlugin()]),
-        },
+        // optimization: {
+        //   minimizer: (!isDevBuild && [new UglifyJsPlugin(),]),
+        // },
         module: {
             rules: [
                 { test: /\.html$/i, use: 'html-loader' },

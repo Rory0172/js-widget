@@ -3,6 +3,7 @@ import './message.sass';
 
 let elements = [];
 let body;
+let dialog;
 
 export function show(configurations) {
   let subdomain = configurations.subdomain;
@@ -13,19 +14,9 @@ export function show(configurations) {
   temporary.innerHTML = html;
   temporary.getElementsByTagName(
     'iframe'
-  )[0].src = `https://legalsites.app/widget/${uuid}`;
+  )[0].src = `http://localhost:3001/widget/${uuid}`;
 
-  let overlay = temporary.getElementsByClassName('js-widget-overlay')[0];
-  switch (styling.overlay){
-  case "light":
-    overlay.className +="-light"
-    break;
-  case "dark":
-    overlay.className +="-dark"
-    break;
-  }
-
-  let dialog = temporary.getElementsByClassName('js-widget-dialog')[0];
+  dialog = temporary.getElementsByClassName('js-widget-dialog')[0];
   switch (styling.template){
   case "squared popup":
     if (styling.popup_side == 'left'){
@@ -46,6 +37,7 @@ export function show(configurations) {
   }
 
   body = document.getElementsByTagName('body')[0];
+  let html_object = document.getElementsByTagName('html')[0];
 
   while (temporary.children.length > 0) {
     elements.push(temporary.children[0]);
@@ -53,6 +45,7 @@ export function show(configurations) {
   }
 
   body.addEventListener('click', close);
+  html_object.addEventListener('click', close);
 }
 
 export function close() {
@@ -60,4 +53,6 @@ export function close() {
     elements.pop().remove();
   }
   body.removeEventListener('click', close);
+  dialog = body.getElementsByClassName('js-widget-dialog')[0];
+  dialog.removeEventListener('click', close);
 }

@@ -55,7 +55,7 @@ function receiveMessage(event) {
   // Do we trust the sender of this message?  (might be
   // different from what we originally opened, for example).
   console.log(event.origin);
-  if (event.origin !== 'http://startupz.localhost:3001') return;
+  if (event.origin !== 'http://legalsites.app') return;
 
   console.log('Received in widget: ' + event.data);
   addStyling(event.data);
