@@ -1,28 +1,9 @@
-.js-widget-overlay
-  &-light
-    z-index: 10000
-    position: absolute
-    top: 0px
-    bottom: 0px
-    left: 0px
-    right: 0px
-    opacity: 0.8
-  &-dark
-    z-index: 10000
-    position: fixed
-    top: 0px
-    bottom: 0px
-    left: 0px
-    right: 0px
-    opacity: 0.8
-    background-color: rgba(0, 0, 0, 0.73)
-
 .js-widget-dialog
   &-left
     z-index: 10001
     background: #fff
     box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.1)
-    height: 214px
+    height: 280px
     position: fixed
     width: 100%
     display: flex
@@ -34,9 +15,7 @@
     max-width: 280px
   &-right
     z-index: 10001
-    background: #fff
-    box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.1)
-    height: 214px
+    height: 280px
     position: fixed
     width: 100%
     display: flex
@@ -45,19 +24,17 @@
     flex-direction: column
     right: 48px
     bottom: 48px
-    max-width: 280px
   &-bottom
     z-index: 10001
     background: #fff
     box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.1)
-    height: 214px
-    position: fixed
-    width: 100%
+    height: 280px
+    position: sticky
     display: flex
     align-items: center
     justify-content: center
     flex-direction: column
-    bottom: 0
+    bottom: 48px
     width: 100%
   &-top
     z-index: 10001

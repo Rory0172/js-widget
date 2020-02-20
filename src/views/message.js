@@ -17,6 +17,8 @@ export function show(configurations) {
   )[0].src = `http://localhost:3001/widget/${uuid}`;
 
   dialog = temporary.getElementsByClassName('js-widget-dialog')[0];
+  styling.template = "squared popup"
+  styling.popup_side = "left"
   switch (styling.template){
   case "squared popup":
     if (styling.popup_side == 'left'){
@@ -53,6 +55,4 @@ export function close() {
     elements.pop().remove();
   }
   body.removeEventListener('click', close);
-  dialog = body.getElementsByClassName('js-widget-dialog')[0];
-  dialog.removeEventListener('click', close);
 }
