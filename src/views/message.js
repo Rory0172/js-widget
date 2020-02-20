@@ -18,7 +18,7 @@ export function show(configurations) {
 
   dialog = temporary.getElementsByClassName('js-widget-dialog')[0];
   styling.template = "squared popup"
-  styling.popup_side = "left"
+  styling.popup_side = "right"
   switch (styling.template){
   case "squared popup":
     if (styling.popup_side == 'left'){
