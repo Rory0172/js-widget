@@ -17,8 +17,8 @@ export function show(configurations) {
   )[0].src = `http://localhost:3001/widget/${uuid}`;
 
   dialog = temporary.getElementsByClassName('js-widget-dialog')[0];
-  styling.template = "squared popup"
-  styling.popup_side = "right"
+  styling.template = "vertical popup"
+  styling.popup_position = "top"
   switch (styling.template){
   case "squared popup":
     if (styling.popup_side == 'left'){
