@@ -1,15 +1,11 @@
 import { ping } from './services';
-import { show } from './views/message';
+import { show, closeWidget, setCookie } from './views/message';
 
 const supportedAPI = ['init', 'message']; // enlist all methods supported by API (e.g. `mw('event', 'user-login');`)
 
-/**
-    The main entry of the application
-    */
 function app(window) {
   console.log('JS-Widget starting');
 
-  // set default configurations
   let configurations = {
     uuid: '',
     type: 'all-in-one',
@@ -52,13 +48,13 @@ function app(window) {
 }
 
 function receiveMessage(event) {
-  // Do we trust the sender of this message?  (might be
-  // different from what we originally opened, for example).
-  console.log(event.origin);
-  if (event.origin !== 'http://legalsites.app') return;
-
   console.log('Received in widget: ' + event.data);
-  addStyling(event.data);
+  if (event.data == "close_legalsite_widget"){
+    closeWidget()
+  }
+  if(event.data == "set_cookie_legalsite_widget"){
+    setCookie()
+  }
 }
 
 function extendObject(a, b) {
